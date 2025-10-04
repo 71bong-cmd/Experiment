@@ -1,0 +1,85 @@
+/* 전체 페이지의 기본 스타일 설정 */
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* 모든 스크린들의 기본 스타일 (흰색 박스) */
+#start-screen, #demographics-screen {
+    text-align: center;
+    max-width: 600px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* 실험 화면 스타일 */
+.experiment-container {
+    text-align: center;
+}
+
+/* 이미지 컨테이너 스타일 */
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* 이미지 스타일 */
+.image-container img {
+    width: 400px; height: 300px; object-fit: cover;
+    border: 3px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.image-container img:hover {
+    border-color: #007bff;
+    transform: scale(1.03);
+}
+
+/* 버튼 공통 스타일 */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 20px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+/* 참가자 정보 화면 내부 스타일 */
+#demographics-screen .form-group {
+    margin: 25px 0;
+    text-align: left;
+}
+#demographics-screen label {
+    font-weight: bold;
+    margin-right: 15px;
+}
+#demographics-screen input[type="radio"] {
+    margin-right: 5px;
+}
+#demographics-screen select {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* 화면 숨기기용 클래스 */
+.hidden {
+    display: none;
+}

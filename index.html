@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사진 비교 실험</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사진 비교 실험</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="start-screen">
+        <h1>인간과 멀티모달 대형언어모델 가로경관 인식 비교 연구</h1>
+        <p>잠시 후 두 개의 이미지가 제시됩니다. 질문에 따라 더 마음에 드는 이미지를 선택해주세요.</p>
+        <button id="start-button">실험 참여하기</button>
+    </div>
+
+    <div id="demographics-screen" class="hidden">
+        <h2>실험 참여에 앞서, 아래의 질문에 답변 부탁드립니다.</h2>
+        <div class="form-group">
+            <label>성별</label>
+            <div>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">남성</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">여성</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="age-select">연령대</label>
+            <select id="age-select">
+                <option value="">-- 선택 --</option>
+                <option value="10s">10대</option>
+                <option value="20s">20대</option>
+                <option value="30s">30대</option>
+                <option value="40s">40대</option>
+                <option value="50s">50대</option>
+                <option value="60s+">60대 이상</option>
+            </select>
+        </div>
+        <button id="start-main-button">본 실험 시작하기</button>
+    </div>
+
+    <div id="experiment-screen" class="experiment-container hidden">
+        <h1 id="question-text"></h1>
+        <div class="image-container">
+            <img id="image-left" src="" alt="왼쪽 이미지">
+            <img id="image-right" src="" alt="오른쪽 이미지">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+</html> 
