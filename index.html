@@ -3,29 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사진 비교 실험</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사진 비교 실험</title>
+    <title>가로경관 인식 비교 연구</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="start-screen">
         <h1>인간과 멀티모달 대형언어모델 가로경관 인식 비교 연구</h1>
-        <p>잠시 후 두 개의 이미지가 제시됩니다. 질문에 따라 더 마음에 드는 이미지를 선택해주세요.</p>
-        <button id="start-button">실험 참여하기</button>
+        <button id="start-button">연구 참여하기</button>
+    </div>
+
+    <div id="intro-screen" class="hidden">
+        <div class="intro-content">
+            <p>
+                안녕하세요?<br>
+                연세대학교 도시공학과 도시설계 및 재생연구실 김기봉입니다.<br><br>
+                여러분께서 제공해주시는 소중한 의견은 향후 더 나은 도시환경을 디자인하는 데 중요한 기초 자료로 활용될 것입니다.
+            </p>
+            <h2>설문 안내</h2>
+            <p>
+                - 본 설문은 '쌍대비교' 방식으로 진행됩니다. <br>- 화면에 두 장의 가로경관 사진이 동시에 나타나면, 각 질문에 제시된 기준에 따라 더 적합하다고 생각되는 사진 하나를 클릭해주시면 됩니다.<br>
+                - 정답은 없으니, 깊이 생각하기보다는 본인의 첫인상과 느낌에 따라 편안하게 응답해주시기 바랍니다.<br>
+                - 설문은 총 5개의 짧은 세션으로 구성되어 있으며, 예상 소요 시간은 약 10분입니다.
+            </p>
+            <h2>개인정보 및 데이터 관련 안내</h2>
+            <p>
+                - 모든 응답은 익명으로 수집되며, 개인을 식별할 수 있는 정보는 절대 요구하지 않습니다.<br>
+                - 수집된 데이터는 통계적으로만 처리되며, 본 연구의 학술적 목적 이외에는 절대 사용되지 않을 것을 약속드립니다.<br>
+                - 아래 '다음' 버튼을 누르시면, 연구 참여에 동의하신 것으로 간주합니다. 귀하의 참여에 다시 한번 진심으로 감사드립니다.
+            </p>
+        </div>
+        <button id="intro-next-button">다음</button>
     </div>
 
     <div id="demographics-screen" class="hidden">
         <h2>실험 참여에 앞서, 아래의 질문에 답변 부탁드립니다.</h2>
         <div class="form-group">
+            <label for="name-input">이름</label>
+            <input type="text" id="name-input" placeholder="성함을 입력해주세요">
+        </div>
+        <div class="form-group">
+            <label for="contact-input">연락처</label>
+            <input type="text" id="contact-input" placeholder="연락처를 입력해주세요">
+        </div>
+        <div class="form-group">
             <label>성별</label>
-            <div>
+            <div class="radio-group">
                 <input type="radio" id="male" name="gender" value="male">
                 <label for="male">남성</label>
                 <input type="radio" id="female" name="gender" value="female">
@@ -33,7 +55,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="age-select">연령대</label>
+            <label for="age-select">연령</label>
             <select id="age-select">
                 <option value="">-- 선택 --</option>
                 <option value="10s">10대</option>
@@ -47,6 +69,14 @@
         <button id="start-main-button">본 실험 시작하기</button>
     </div>
 
+    <div id="question-intro-screen" class="hidden">
+        <div id="question-description">
+            <h2></h2>
+            <p></p>
+        </div>
+        <button id="start-session-button">세션 시작하기</button>
+    </div>
+
     <div id="experiment-screen" class="experiment-container hidden">
         <h1 id="question-text"></h1>
         <div class="image-container">
@@ -58,4 +88,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-</html> 
