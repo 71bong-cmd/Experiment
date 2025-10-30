@@ -16,11 +16,10 @@ const rightImageElement = document.getElementById('image-right');
 const imageContainer = document.querySelector('.image-container');
 
 const trialsPerQuestion = 10;
-// 001.png ~ 080.png, 'images/' 접두사가 이미 src 세팅에 있으니 여기선 'Scenery/'까지만!
-const sceneryPool = Array.from(
-  { length: 80 },
-  (_, i) => `Scenery/${String(i + 1).padStart(3, '0')}.png`
+const sceneryPool = Array.from({ length: 80 }, (_, i) =>
+  `Scenery/${String(i + 1).padStart(3, '0')}.png`
 );
+
 
 const experimentData = [
     {
