@@ -53,27 +53,19 @@ let participantInfo = {};
 let currentQuestionIndex = 0;
 let currentPairCount = 0;
 
-function sendDataToGoogleForm(data) {
-    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdKjrPw9qH-V5dCnQCzfzt9dKyo6CogO6_mxjuJOpM-soqmUQ/formResponse";
-    
-    const formData = new FormData();
-    formData.append("entry.358687263", data.name || "");
-    formData.append("entry.1354431399", data.contact || "");
-    formData.append("entry.1954863761", data.gender || "");
-    formData.append("entry.729090754", data.age || "");
-    formData.append("entry.496751721", data.questionIndex !== undefined ? data.questionIndex : "");
-    formData.append("entry.344271547", data.questionText || "");
-    formData.append("entry.359462935", data.trialNumber || "");
-    formData.append("entry.831233853", data.shownImages || "");
-    formData.append("entry.790394210", data.chosenImage || "");
-    formData.append("entry.1564705789", data.timestamp || "");
+// ✅ Google Apps Script 웹앱 URL 넣기
+const WEBAPP_URL = "https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbwLb1r3ORjtAW3B2K2ZOn4gIc0qL1oVWTwWQy0cuuf1xvtnPIAs7zAyhRyDIFoA0jE/exec/exec";
 
-    fetch(formUrl, {
-        method: "POST",
-        body: formData,
-        mode: "no-cors"
-    }).catch(error => console.error('Error!', error.message));
+// ✅ 웹앱으로 데이터 전송하는 함수
+function sendRowByWebApp(data) {
+  fetch(WEBAPP_URL, {
+    method: "POST",
+    mode: "no-cors",  // 응답은 안 보이지만 시트에는 저장됨
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(data)
+  }).catch(err => console.error("GAS error:", err));
 }
+
 
 function showQuestionIntro() {
     const currentQuestionData = experimentData[currentQuestionIndex];
@@ -130,7 +122,7 @@ function handleImageClick(event) {
         chosenImage: chosenImage,
         timestamp: new Date().toISOString()
     };
-    sendDataToGoogleForm(resultData);
+    sendRowByWebApp(resultData);
     
     currentPairCount++;
     if (currentPairCount >= trialsPerQuestion) {
