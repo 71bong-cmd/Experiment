@@ -54,7 +54,7 @@ let currentQuestionIndex = 0;
 let currentPairCount = 0;
 
 // ✅ Google Apps Script 웹앱 URL 넣기
-const WEBAPP_URL = "https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbwLb1r3ORjtAW3B2K2ZOn4gIc0qL1oVWTwWQy0cuuf1xvtnPIAs7zAyhRyDIFoA0jE/exec/exec";
+const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbx0DDelwKRyObPV9dSpWxh89h0-rVR4aoceE7kdzzSV4X_qjt6C0pWikMcl5c8vaLg/exec";
 
 // ✅ 웹앱으로 데이터 전송하는 함수
 function sendRowByWebApp(data) {
